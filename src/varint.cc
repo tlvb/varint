@@ -10,16 +10,16 @@ varint::type varint::classify(int64_t i) { /*{{{*/
 		// zero is classified as a positive number here
 		return varint::type::pos_7;
 	}
-	else if (i & ~0x3ff == 0) {
+	else if ((i & ~0x3ff) == 0) {
 		return varint::type::pos_14;
 	}
-	else if (i & ~0x1fffff == 0) {
+	else if ((i & ~0x1fffff) == 0) {
 		return varint::type::pos_21;
 	}
-	else if (i & ~0xfffffff == 0) {
+	else if ((i & ~0xfffffff) == 0) {
 		return varint::type::pos_28;
 	}
-	else if (i & ~0xffffffff == 0) {
+	else if ((i & ~0xffffffff) == 0) {
 		return varint::type::pos_32;
 	}
 	return varint::type::pos_64;
